@@ -22,13 +22,24 @@ public class Account
 	 private String accountHolder;
 	 private double accountBalance;
 	 private long contactNo;
-	 private String emailId;
+	 
+	 private String password;
+	 public String getPassword() {
+		return password;
+	}
+	public void setPassword(String password) {
+		this.password = password;
+	}
+	private String emailId;
 	 @Column(unique =true)
 	 private long customerId;
 	 @Nullable
 	 @OneToMany
 	 @JoinTable(name="EveryRecord",joinColumns=@JoinColumn(name="AccountNo"),inverseJoinColumns=@JoinColumn(name="TransactionId"))
 	 private Collection<Transaction> mytrans=new ArrayList<Transaction>();
+	 
+	 
+	 
 	public long getAccountNo() {
 		return accountNo;
 	}
@@ -77,12 +88,14 @@ public class Account
 				+ accountBalance + ", contactNo=" + contactNo + ", emailId=" + emailId + ", customerId=" + customerId
 				+ ", mytrans=" + mytrans + "]";
 	}
-	public Account(String accountHolder, double accountBalance, long contactNo, String emailId, long customerId,
-			Collection<Transaction> mytrans) {
+	
+	public Account(String accountHolder, double accountBalance, long contactNo, String password, String emailId,
+			long customerId, Collection<Transaction> mytrans) {
 		super();
 		this.accountHolder = accountHolder;
 		this.accountBalance = accountBalance;
 		this.contactNo = contactNo;
+		this.password = password;
 		this.emailId = emailId;
 		this.customerId = customerId;
 		this.mytrans = mytrans;
