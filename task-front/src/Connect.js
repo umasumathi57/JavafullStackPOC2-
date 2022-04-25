@@ -1,7 +1,9 @@
 import axios from 'axios'
 
-//const url=""
+const url= "http://localhost:8080"
+
 export const adding=async(object)=>{
 
-    const t=await axios.post(`${url}/newacc`,object)
+    const temp=await axios.post(`${url}/newacc`,object)
+    return temp;
 }
