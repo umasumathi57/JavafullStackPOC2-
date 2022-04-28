@@ -4,11 +4,12 @@ import LoginIcon from '@mui/icons-material/Login';
 import CancelIcon from '@mui/icons-material/Cancel';
 import { Carousel } from "react-bootstrap"
 import { useState } from "react";
+import { stepIn } from "./Connect";
 
 export const Login=()=>{
 
     const[log,setLog]=useState({
-        "user":"",
+        "user":0,
         "pass":""
     })
 
@@ -23,8 +24,17 @@ export const Login=()=>{
         })
     }
 
-    const logging=()=>{
+    const logging=async()=>{
 
+        const t=await stepIn(log)
+        if(t.data)
+        {
+            window.location.assign("/home")
+        }
+        else
+        {
+            cancel(0)
+        }
     }
 
     const cancel=()=>{
@@ -56,7 +66,7 @@ export const Login=()=>{
                             <Carousel.Item>
                                 <img
                                 className="d-block w-100"
-                                src=""
+                                src="/Images/bb.jpg"
                                 alt="Second slide"
                                 />
 

@@ -15,4 +15,9 @@ public class AccountService
 		return rep.save(account);
 	}
 	
+	public Account getByValid(long data1, String data2)
+	{
+		return rep.findAccountByValidation(data1, data2);
+	}
+	
 }

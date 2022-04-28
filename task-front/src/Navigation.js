@@ -11,9 +11,9 @@ return(
     <Navbar.Toggle aria-controls="Sample" />
     <Navbar.Collapse id="Sample">
       <Nav className="ms-auto">
-        <Nav.Link active href="/sign">Main1</Nav.Link>
-        <Nav.Link  href="/second">Main2</Nav.Link>
-        <Nav.Link  href="/third">Main3</Nav.Link>
+        <Nav.Link active href="/sign">New Account</Nav.Link>
+        <Nav.Link  href="/">Login</Nav.Link>
+        <Nav.Link  href="/home">Home</Nav.Link>
 
       </Nav>
     </Navbar.Collapse>
