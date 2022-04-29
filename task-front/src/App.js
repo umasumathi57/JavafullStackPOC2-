@@ -5,6 +5,9 @@ import { Html, Java, Reactjs } from "./Mycomponent";
 import { NewAccount } from "./SignUp.js";
 import { Login } from "./Login";
 import { Home } from "./Home";
+import { Transaction01 } from "./Transactions";
+
+
 
 const App=()=>{
   return(
@@ -12,12 +15,10 @@ const App=()=>{
       <BrowserRouter>
         <Menus/>
           <Routes>
-             <Route path="/sign" exact element={<NewAccount/>}/> 
+              <Route path="/showt" exact element={<Transaction01/>}/> 
+              <Route path="/sign" exact element={<NewAccount/>}/> 
               <Route path="/" exact element={<Login/>}/> 
-
-              {/* <Route path="/second/:ref" exact element={<Java/>}/> */}
               <Route path="/home" exact element={<Home/>}/>
-
           </Routes>
       </BrowserRouter>
       

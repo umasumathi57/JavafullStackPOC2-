@@ -29,11 +29,12 @@ export const Login=()=>{
         const t=await stepIn(log)
         if(t.data)
         {
+            localStorage.setItem("loggedperson",JSON.stringify(t.data))
             window.location.assign("/home")
         }
         else
         {
-            cancel(0)
+            cancel()
         }
     }
 
@@ -109,11 +110,12 @@ export const Login=()=>{
                         <input value={log.pass} onChange={observe} name="pass" type="password" placeholder="Password" className='mt-2 form-control'/>
                         <div className="mt-2 row justify-content-around">
                             <Button className='col-4' variant="outlined" color="primary" onClick={logging}>
-                                <LoginIcon/>Open
+                                <LoginIcon/>Login
                             </Button>
                             <Button className='col-4' variant="outlined" color="error" onClick={cancel}>
                                 <CancelIcon/>Cancel
                             </Button>
+                            <a href="/sign" className="link-success text-decoration-none">for create a New Account</a>
                         </div>
                     </div>
                 </div>

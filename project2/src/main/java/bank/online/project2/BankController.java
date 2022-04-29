@@ -24,7 +24,6 @@ public class BankController
 	}
 	
 	
-	
 	@PostMapping("/newacc")
 	public String accountCreate(@RequestBody Account account) 
 	{
