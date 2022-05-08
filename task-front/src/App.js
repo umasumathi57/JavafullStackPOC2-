@@ -6,6 +6,7 @@ import { NewAccount } from "./SignUp.js";
 import { Login } from "./Login";
 import { Home } from "./Home";
 import { Transaction01 } from "./Transactions";
+import { ProUp } from "./ProUp";
 
 
 
@@ -19,6 +20,8 @@ const App=()=>{
               <Route path="/sign" exact element={<NewAccount/>}/> 
               <Route path="/" exact element={<Login/>}/> 
               <Route path="/home" exact element={<Home/>}/>
+              <Route path="/update" exact element={<ProUp/>}/>
+
           </Routes>
       </BrowserRouter>
       

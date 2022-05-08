@@ -1,13 +1,33 @@
 import { Button, Card, CardActions, CardContent, Typography } from "@mui/material"
+import { useEffect, useState } from "react"
+import { deleting } from "./Connect"
 
 export const Home=()=>
 {
+
+    const[account,setAccount]=useState({})
+
+    const hai=()=>{
+        const t = JSON.parse(localStorage.getItem("loggedperson"))
+        setAccount(t)
+    }
+
+    useEffect(()=>{
+        hai()
+    },[])
+
+    const wipeout=async()=>{
+        alert("About to delete "+JSON.stringify(account))
+        const t = await deleting(account)
+        alert(t.data)
+        window.location.assign("/")
+    }
     return(
         <>
 
 <div className="container">
             <h1 className="text-primary text-center text-uppercase">
-              {/* /{JSON.parse(localStorage.getItem("loggedperson")).accountHolder}  */}
+            {JSON.parse(localStorage.getItem("loggedperson")).accountHolder}  
             </h1>
             <div className="row justify-content-center">
                 <div className="col-lg-12 col-md-10 col-sm-12 p-3">
@@ -22,7 +42,9 @@ export const Home=()=>
                                 </Typography>
                             </CardContent>
                             <CardActions>
-                                <Button color="inherit" size="medium">Update</Button>
+                                {/* <Button color="inherit" size="medium">Update</Button> */}
+                                <a href="/update">Update</a>
+
                             </CardActions>
                         </Card>
                         <Card className="col-lg-5 col-md-12 me-1 mb-1 shadow p-3 bg-danger text-light">
@@ -35,7 +57,7 @@ export const Home=()=>
                                 </Typography>
                             </CardContent>
                             <CardActions>
-                                <Button color="inherit" size="medium">Close</Button>
+                                <Button color="inherit" size="medium" onClick={wipeout}>Close</Button>
                             </CardActions>
                         </Card>
                         <Card className="col-lg-5 col-md-12 me-1 mb-1 shadow p-3 bg-secondary text-light">

@@ -9,6 +9,14 @@ public class AccountService
 	@Autowired
 	AccountRepository rep;
 	
+	public String erasing(long num)
+	{
+		Account account=rep.findById(num).orElse(new Account());
+		String t = account.getAccountHolder()+" has deleted";
+		rep.delete(account);
+		return t;
+	}
+	
 	
 	public Account savingAccount(Account account)
 	{
